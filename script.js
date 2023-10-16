@@ -2,7 +2,7 @@
 const container = document.querySelector(".container");
 const optionsContainer = document.querySelector(".options-container");
 
-const url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=44eca781d6fb4e2da8fd8e7969b3b375";
+const url = "https://newsapi.org/v2/top-headlines?country=us&apiKey=a46c0dd48c734ed78f12b4a431fdcd6d";
 
 // "in" stands for India
 const country = "in";
@@ -42,15 +42,26 @@ const generateUI = (articles) => {
 //News API Call
 const getNews = async () => {
   container.innerHTML = "";
-  let response = await fetch(url);
+  
+  fetch(url).then(resp => resp.json()).then(data=> generateUI(data.articles));
+
   if (!response.ok) {
     alert("Data unavailable at the moment. Please try again later");
     return false;
   }
   let data = await response.json();
-  generateUI(data.articles);
+
+  //generateUI(data.articles);
 };
 
+const fetchNews = ()=>{
+  fetch(url).then(response=>{
+    console.log(response);
+    let data = response.json();
+    console.log(data);
+    generateUI(data.articles);
+  }).catch(err=> console.log);
+}
 
 //Category Selection
 const selectCategory = (e, category) => {
@@ -74,6 +85,7 @@ const createOptions = () => {
 
 const init = () => {
   optionsContainer.innerHTML = "";
+  //fetchNews();
   getNews();
   //createOptions();
 };

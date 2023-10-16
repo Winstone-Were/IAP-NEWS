@@ -36,17 +36,16 @@
   }
 
   .heading-container {
-    display: flex;
-    justify-content: space-evenly;
     transition: all 1s ease-in-out;
     background-color: #f2ebe9;
+    align-items: center;
     color: #de5499;
     font-size: 2.5em;
     padding: 0.8em 0;
     position: fixed;
     top: 0;
     width: 100%;
-    height: 11%;
+    height: 12%;
     text-align: center;
     box-shadow: 0 10px 50px 0 rgba(2, 0, 31, 0.3);
     z-index: 1;
@@ -61,7 +60,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    height: 10%;
+    height: 11%;
     text-align: center ;
     box-shadow: 0 10px 50px 0 rgba(7, 165, 131, 0.3);
     z-index: 1;
